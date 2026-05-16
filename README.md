@@ -13,11 +13,11 @@ Each store is a forked & customised copy of Shopify's [Dawn](https://github.com/
 pushed to its own Shopify store. The folder names below are stable internal
 identifiers — actual brand names are decided per-store and live in [`docs/brands.md`](docs/brands.md).
 
-| Folder | Segment | Angle |
-| --- | --- | --- |
-| `themes/fitness/` | Functional fitness | Shoulder durability, grip strength. Offset weight & thick handles train what dumbbells can't. |
-| `themes/combat/`  | Combat sports (BJJ / MMA / wrestling) | Pehlwani heritage, shoulder injury prevention, grip for gi work. |
-| `themes/aesthete/`| Conscious living | Ritual, craft, beautiful hardwood object for daily practice. |
+| Folder | Dev store | Segment | Angle |
+| --- | --- | --- | --- |
+| `themes/fitness/` | `mudgar-strong-shoulders.myshopify.com` | Functional fitness | Shoulder durability, grip strength. Offset weight & thick handles train what dumbbells can't. |
+| `themes/combat/`  | `mudgar-combat-sports.myshopify.com`    | Combat sports (BJJ / MMA / wrestling) | Pehlwani heritage, shoulder injury prevention, grip for gi work. |
+| `themes/aesthete/`| `mudgar-aesthetic.myshopify.com`        | Conscious living | Ritual, craft, beautiful hardwood object for daily practice. |
 
 ---
 
@@ -68,23 +68,30 @@ Rule of thumb: if changing it should change all three stores at once, it's
 
 ### Day-to-day commands
 
-All commands are run from inside a specific theme folder, e.g. `themes/fitness/`:
+All commands are run from inside a specific theme folder. Example for the fitness store:
 
 ```bash
 cd themes/fitness
 
 # Start a local dev server with hot reload, served against the dev store
-shopify theme dev --store <your-fitness-store>.myshopify.com
+shopify theme dev --store mudgar-strong-shoulders.myshopify.com
 
 # Pull the latest live theme down (overwrites local — be careful)
-shopify theme pull --store <your-fitness-store>.myshopify.com
+shopify theme pull --store mudgar-strong-shoulders.myshopify.com
 
 # Push local changes up to the dev store as an unpublished theme
-shopify theme push --store <your-fitness-store>.myshopify.com --unpublished
+shopify theme push --store mudgar-strong-shoulders.myshopify.com --unpublished
 
 # Run theme-check linter
 shopify theme check
 ```
+
+Equivalent stores for the other two folders:
+
+| Folder | `--store` value |
+| --- | --- |
+| `themes/combat/`   | `mudgar-combat-sports.myshopify.com` |
+| `themes/aesthete/` | `mudgar-aesthetic.myshopify.com` |
 
 The first time you run any of these, Shopify CLI will open a browser to
 authenticate you against the store. Auth state is cached in `~/.config/shopify/`,
