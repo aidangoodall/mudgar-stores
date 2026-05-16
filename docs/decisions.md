@@ -14,6 +14,19 @@ decision is later reversed, add a new entry rather than editing the old one.
 
 ---
 
+## 2026-05-16 — Dawn baselines land on `main`
+**Decision:** All three Dawn forks are committed to `main` as an unmodified
+baseline (one shared commit, three folders). Per-store customisation happens
+on `fitness-dev` / `combat-dev` / `aesthete-dev` branches off that commit.
+**Rationale:** Keeps the three baselines in lockstep, makes pulling future
+Dawn upstream releases tractable (one merge into `main`, then merge `main`
+back into each `-dev` branch), and lets anyone cloning fresh see all three
+stores side by side.
+**Impact:** Treat the baseline commit as scaffolding, not stable work — the
+"main = reviewed/published" rule from the README applies to customisations
+made *on top of* the baseline, not the baseline itself. Dawn source:
+https://github.com/Shopify/dawn (cloned with `--depth=1`, history stripped).
+
 ## 2026-05-16 — Shopify dev store handles
 **Decision:** The three Shopify development stores are named:
 - `mudgar-strong-shoulders.myshopify.com` → `themes/fitness/`
